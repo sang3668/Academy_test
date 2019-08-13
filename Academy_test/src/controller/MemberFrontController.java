@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.member.LoginProAction;
 import vo.ActionForward;
 
 @WebServlet("*.me")
@@ -23,12 +24,25 @@ public class MemberFrontController extends HttpServlet {
         
         Action action = null;
         ActionForward forward = null;
-        
+      	System.out.println("dsdd");
         if(command.equals("/LoginForm.me")) {
             // member 폴더의 loginForm.jsp 페이지로 이동
             forward = new ActionForward();
             forward.setPath("/member/loginForm.jsp");
-        } 
+            
+            
+        }else if(command.equals("/LoginPro.me")) {
+
+        	action = new LoginProAction();
+
+        	try {
+				forward =action.execute(request, response);
+
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        }
         
         
         

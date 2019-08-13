@@ -79,10 +79,19 @@
                 <li class="nav-item">
                   <a class="nav-link" href="contact.jsp">Contact</a>
                 </li>
-                
+                <%
+                String sid = (String)session.getAttribute("sid");
+               
+            	if(sid == null){
+            	%>
                 <li class="nav-item">
-                  <a class="nav-link" href="loginForm.jsp">로그인</a>
+                  <a class="nav-link" href="member/loginForm.jsp">로그인</a>
                 </li>
+                <%}else {
+                	%> <li class="nav-item">
+                  <a class="nav-link" href="member/.jsp"><%=sid %>님</a>
+                </li>
+                <%}%>
                 
                 <li class="nav-item">
                  <a class="nav-link" href="notice/notice.jsp">공지/이벤트</a>
